@@ -1,0 +1,73 @@
+<h1>Exercise 4</h1>
+
+<h3>Backbone Views</h3>
+
+<section class="container">
+<br>
+</section>
+<br> 
+<section class="con">
+<br>
+</section>
+
+
+<section class="container">
+<br>
+</section>
+<br> 
+<section class="con">
+<br>
+</section>
+
+
+<section class="container">
+<br>
+</section>
+<section class="con">
+<br>
+</section>
+
+
+<section class="container">
+<br>
+</section>
+<br> 
+<section class="con">
+	 <br> 
+</section>
+
+
+<section class="container">
+<br>
+</section>
+<br> 
+<section class="con">
+	<br>
+</section>
+
+<script type="text/javascript">
+	var app = app || {}; 
+	app.listItemView = Backbone.View.extend({
+		initialize: function() {
+			this.render();
+			console.log('yo, content should be rendered in');
+			console.log(this.$el); // objects must be called by themselves in order for console to actually show it 
+		},
+
+		render: function() {
+			this.$el.css({'background' : 'url("http://seveninchesofyourtime.com/wp-content/uploads/2014/05/Yawning-Red-Panda.jpg") no-repeat center center fixed',
+				'background-size' : 'cover',
+				'color' : 'tomato',
+				'font-size' : '2rem'}); 
+		}
+	});
+
+	var listItem = new app.listItemView({
+		el: $('.container')
+	}); 
+
+	var listItemTwo = new app.listItemView({
+		el: $('.con')
+	}); 
+
+</script>
