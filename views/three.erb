@@ -1,0 +1,31 @@
+<h3>exercise 3 </h3>
+
+,<h3>Using templates with a list of data</h3>
+
+<p id="content">
+	
+</p>
+
+<script type="text/template" id="story">
+	<li> <%%= name %>, <%%= priority %> </li> 
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		var stories = [
+	  {name: 'Sonju took over the world', priority: 'AWESOME'},
+	  {name: 'Brad and Isaac buy out Last.fm', priority: 'BODACIOUS'},
+	  {name: 'David Hayes reaches the moon', priority: 'RADICAL'},
+	  {name: 'James goes one day without falling', priority: 'WIN'},
+	  {name: 'Billionaire Kate buys GChat', priority: 'MOST EXCELLENT'},
+	  {name: 'Tim Rourke replaces Slack with RChat', priority: 'KICKASS'}
+		];
+
+		var storyTemplate = _.template($('#story').html()); 
+
+		for (var story in stories) {
+			var data = stories[story];
+			$('#content').append(storyTemplate(data)); 
+		}; 
+	})
+</script>
