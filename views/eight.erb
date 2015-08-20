@@ -1,0 +1,42 @@
+<h1>Ex 8</h1>
+<h3>Render model attributes with a View</h3>
+
+<div class="movie">
+	
+</div>
+
+<script type="text/javascript">
+
+	var movieApp = movieApp || {};
+	var movieModels = movieModels || {}; 
+	movieApp.movieView = Backbone.View.extend({
+		initialize: function() {
+			var view = this; 
+			console.log('movieView ready');
+			this.model.on('change', function() {
+				view.render(); 
+			}); 
+		},
+		render: function() {
+			var data = this.model.attributes; 
+			this.$el.html('Movie: ' + data.Title + ' was released in ' + data.Year); 
+		}
+
+	});
+
+	movieApp.movieModel = Backbone.Model.extend({
+		url: 'http://www.omdbapi.com/?t=kill+bill&y=&plot=short&r=json',
+
+	}); 
+
+	$(document).ready(function() {
+		movieModels.movieModel = new movieApp.movieModel();
+		movieModels.movieView = new movieApp.movieView({
+			el: $(".movie"),
+			model: movieModels.movieModel
+		}); 
+		movieModels.movieModel.fetch();
+	});
+
+
+</script>

@@ -1,0 +1,71 @@
+
+<p id="test"> </p> 
+
+<script type="text/javascript"> 
+
+
+$(document).ready(function() {
+
+  
+var deg = degree(), 
+   r = colors(),
+   g = colors(), 
+   b = colors(), 
+   w = colors(), 
+   x = colors(),
+   y = colors(), 
+   z = Math.random().toFixed(2),
+   percentage = percent(),
+   purrcentage = percent()
+   per = 0,
+   gradient = '',
+   interval = window.setInterval(bg,310); 
+
+function colors() {
+  return Math.floor(Math.random() * 255 + 1); 
+}
+
+function alpha() {
+  return Math.random().toFixed(2);
+}
+
+function percent() {
+  var percent = Math.floor(Math.random() * 100 + 1), 
+      purrcent = Math.floor(Math.random() * 100 + 1);
+  return [percent, purrcent]; 
+}
+
+function degree() {
+  return Math.floor(Math.random() * 360 + 1); 
+}
+
+function getGradient() {
+     deg = degree(),
+     r = colors(),
+     g = colors(), 
+     b = colors(), 
+     w = colors(), 
+     x = colors(),
+     y = colors(), 
+     z = alpha(), 
+     per = percent(),
+     percentage = per[0],
+     purrcentage = per[1];
+
+    gradient = 'linear-gradient(' + deg + 'deg, ' + 'rgb(' + r + ',' + g + ',' + b + ') ' + percentage + '%, ' + 'rgba(' + w + ',' + x + ',' + y + ',' + z+ ')' + ' ' + purrcentage + '%), ';
+    gradient += 'linear-gradient(' + deg + 'deg, ' + 'rgb(' + r + ',' + g + ',' + b + ') ' + percentage + '%, ' + 'rgba(' + w + ',' + x + ',' + y + ',' + z+ ')' + ' ' + purrcentage + '%), ';
+
+    return gradient; 
+};
+ 
+function bg() {
+  $('body').css({
+    'background' : getGradient()
+  });
+}
+
+//$('#test').html(getGradient());
+
+});
+  </script> 
+

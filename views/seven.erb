@@ -1,0 +1,19 @@
+<h1>Exercise 7</h1>
+<h3>Check the console!</h3>
+<script type="text/javascript">
+
+var bestMovie = bestMovie || {}; 
+		bestMovie.movieModel = Backbone.Model.extend({
+	url: 'http://www.omdbapi.com/?t=the+crow&y=&plot=short&r=json',
+	initialize: function(){
+		this.on('change', function(event) {
+			console.log(this.attributes);
+			console.log('model has changed');
+		}); 
+	}
+}); 
+
+var movie = new bestMovie.movieModel();
+movie.fetch();
+
+</script>

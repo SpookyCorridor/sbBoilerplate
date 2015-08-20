@@ -1,0 +1,24 @@
+<h1>Exercise 6</h1>
+
+<h3>Backbone Model</h3>
+
+<script type="text/javascript">
+	var movieApp = movieApp || {};
+
+	movieApp.movieModel = Backbone.Model.extend({
+		url: 'http://www.omdbapi.com/?t=kill+bill&y=&plot=short&r=json',
+		initialize: function() {
+			console.log('model initialized');
+			this.on('change', function(event) {
+				// change event implements design pattern called
+				// Object.observe()
+				console.log(this.attributes)
+				console.log('the model has transcended');
+			});
+		}
+
+	}); 
+
+	var movie = new movieApp.movieModel();
+	movie.fetch(); 
+</script>
